@@ -24,7 +24,7 @@
       document.getElementById('result').innerText = '';
 
       try {
-        const response = await fetch('https://ef98fefe9dc0.ngrok-free.app/submit', {
+        const response = await fetch('https://.ngrok-free.app/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ user_input: input })
@@ -43,7 +43,7 @@
     async function pollForResult(jobId) {
       const interval = setInterval(async () => {
         try {
-          const res = await fetch(`https://ef98fefe9dc0.ngrok-free.app/status/${jobId}`);
+          const res = await fetch(`https://.ngrok-free.app/status/${jobId}`);
           const data = await res.json();
 
           if (data.status === 'done') {
