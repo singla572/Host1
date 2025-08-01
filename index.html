@@ -159,7 +159,7 @@
   <form id="script-form">
     <div class="form-container">
     
-      
+      <!--
       <div class="form-group">
         <label for="returns">Returns</label>
         <select name="returns" id="returns" required>
@@ -169,6 +169,7 @@
           <option value="low">Low</option>
         </select>
       </div>
+      -->
       
       <div class="form-group">
         <label for="risk">Risk</label>
@@ -201,6 +202,15 @@
           <option value="10" selected>10</option>
         </select>
       </div>
+
+      <div class="form-group">
+        <label>Price Range</label>
+        <div style="display: flex; gap: 10px;">
+          <input type="number" id="price-min" name="price_min" placeholder="Min" step="any" class="form-control" style="width: 100px;">
+          <input type="number" id="price-max" name="price_max" placeholder="Max" step="any" class="form-control" style="width: 100px;">
+        </div>
+      </div>
+      
       <!--
       <div class="form-group">
         <label for="cost">Cost</label>
