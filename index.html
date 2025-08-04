@@ -250,6 +250,28 @@
   </div>
 </div>
 
+      
+      <div class="form-group">
+        <label for="RebalanceDay">Rebalance Day</label>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="RebalanceDayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Trading Day
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="RebalanceDayDropdown" id="RebalanceDayCheckboxes">
+            <li class="dropdown-item">
+              <button type="button" onclick="toggleAllSectors()" id="toggle-button">Deselect All</button>
+            </li>
+            <li><label><input type="checkbox" name="RebalanceDay" value="Monday" checked> Monday</label></li>
+            <li><label><input type="checkbox" name="RebalanceDay" value="Tuesday" checked> Tuesday</label></li>
+            <li><label><input type="checkbox" name="RebalanceDay" value="Wednesday" checked> Wednesday</label></li>
+            <li><label><input type="checkbox" name="RebalanceDay" value="Thursday" checked> Thursday</label></li>
+            <li><label><input type="checkbox" name="RebalanceDay" value="Friday" checked> Friday</label></li>
+
+            <!-- Add more as needed -->
+          </ul>
+        </div>
+      </div>
+      <!--
       <div class="form-group">
         <label for="long_short">Long/Short</label>
         <select name="long_short" id="long_short" required>
@@ -259,6 +281,7 @@
           <option value="long_short">Long/Short</option>
         </select>
       </div>
+      -->
     </div>
 
     <div class="button-container">
