@@ -222,7 +222,8 @@
         </select>
       </div>
       -->
-      <div class="form-group">
+     <!-- Sectors Dropdown -->
+<div class="form-group">
   <label for="sectors">Sectors</label>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="sectorDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -230,8 +231,8 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="sectorDropdown" id="sectorCheckboxes">
       <li class="dropdown-item">
-    <button type="button" onclick="toggleAllSectors()" id="toggle-button">Deselect All</button>
-  </li>
+        <button type="button" onclick="toggleAll('sectors')" id="toggle-sectors-button">Deselect All</button>
+      </li>
       <li><label><input type="checkbox" name="sectors" value="Commodities" checked> Commodities</label></li>
       <li><label><input type="checkbox" name="sectors" value="Financial Services" checked> Financial Services</label></li>
       <li><label><input type="checkbox" name="sectors" value="Information Technology" checked> Information Technology</label></li>
@@ -244,33 +245,29 @@
       <li><label><input type="checkbox" name="sectors" value="Fast Moving Consumer Goods" checked> Fast Moving Consumer Goods</label></li>
       <li><label><input type="checkbox" name="sectors" value="Utilities" checked> Utilities</label></li>
       <li><label><input type="checkbox" name="sectors" value="Telecommunication" checked> Telecommunication</label></li>
-
-      <!-- Add more as needed -->
     </ul>
   </div>
 </div>
 
-      
-      <div class="form-group">
-        <label for="RebalanceDay">Rebalance Day</label>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="RebalanceDayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            Select Trading Day
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="RebalanceDayDropdown" id="RebalanceDayCheckboxes">
-            <li class="dropdown-item">
-              <button type="button" onclick="toggleAllSectors()" id="toggle-button">Deselect All</button>
-            </li>
-            <li><label><input type="checkbox" name="RebalanceDay" value="Monday" checked> Monday</label></li>
-            <li><label><input type="checkbox" name="RebalanceDay" value="Tuesday" checked> Tuesday</label></li>
-            <li><label><input type="checkbox" name="RebalanceDay" value="Wednesday" checked> Wednesday</label></li>
-            <li><label><input type="checkbox" name="RebalanceDay" value="Thursday" checked> Thursday</label></li>
-            <li><label><input type="checkbox" name="RebalanceDay" value="Friday" checked> Friday</label></li>
-
-            <!-- Add more as needed -->
-          </ul>
-        </div>
-      </div>
+<!-- Rebalance Day Dropdown -->
+<div class="form-group">
+  <label for="RebalanceDay">Rebalance Day</label>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="RebalanceDayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Select Trading Day
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="RebalanceDayDropdown" id="RebalanceDayCheckboxes">
+      <li class="dropdown-item">
+        <button type="button" onclick="toggleAll('RebalanceDay')" id="toggle-rebalance-button">Deselect All</button>
+      </li>
+      <li><label><input type="checkbox" name="RebalanceDay" value="Monday" checked> Monday</label></li>
+      <li><label><input type="checkbox" name="RebalanceDay" value="Tuesday" checked> Tuesday</label></li>
+      <li><label><input type="checkbox" name="RebalanceDay" value="Wednesday" checked> Wednesday</label></li>
+      <li><label><input type="checkbox" name="RebalanceDay" value="Thursday" checked> Thursday</label></li>
+      <li><label><input type="checkbox" name="RebalanceDay" value="Friday" checked> Friday</label></li>
+    </ul>
+  </div>
+</div>
       <!--
       <div class="form-group">
         <label for="long_short">Long/Short</label>
@@ -420,14 +417,15 @@
   <script>
   let allSelected = true;
 
-  function toggleAllSectors() {
-    const checkboxes = document.querySelectorAll('#sectorCheckboxes input[type="checkbox"]');
-    checkboxes.forEach(cb => cb.checked = !allSelected);
-    allSelected = !allSelected;
+function toggleAll(groupName) {
+  const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
+  const allChecked = Array.from(checkboxes).every(cb => cb.checked);
 
-    // Update button text
-    document.getElementById('toggle-button').textContent = allSelected ? 'Deselect All' : 'Select All';
-  }
-</script>
+  checkboxes.forEach(cb => cb.checked = !allChecked);
+
+  const toggleButton = document.getElementById(`toggle-${groupName.toLowerCase()}-button`);
+  toggleButton.textContent = allChecked ? "Select All" : "Deselect All";
+}
+  </script>
 </body>
 </html>
