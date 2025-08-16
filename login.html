@@ -51,7 +51,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   // Replace with a real authentication request
   if (user === "admin" && pass === "secret") {
     localStorage.setItem("loggedIn", "true");
-    window.location.href = "sampletest.html";
+    window.location.href = "index.html";
   } else {
     document.getElementById('login-error').style.display = 'block';
   }
