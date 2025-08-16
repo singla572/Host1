@@ -429,6 +429,14 @@ function toggleAll(groupName) {
   const toggleButton = document.getElementById(`toggle-${groupName.toLowerCase()}-button`);
   toggleButton.textContent = allChecked ? "Select All" : "Deselect All";
 }
+
+    
   </script>
+  <script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
 </body>
 </html>
