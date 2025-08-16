@@ -58,7 +58,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
     const data = await response.json();
     if (data.success) {
       localStorage.setItem("loggedIn", "true");
-      window.location.href = "main.html";
+      window.location.href = "index.html";
     } else {
       document.getElementById('login-error').style.display = 'block';
     }
